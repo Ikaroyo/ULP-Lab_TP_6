@@ -1,10 +1,10 @@
-
 package main;
 
 import clases.Cliente;
 import clases.Directorio;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.util.Objects;
 import javax.swing.JFrame;
 
 public class MainScreen extends javax.swing.JFrame {
@@ -12,33 +12,28 @@ public class MainScreen extends javax.swing.JFrame {
     /**
      * Creates new form MainScreen
      */
-    
-
     private int mouseX, mouseY;
     private Directorio directory = new Directorio();
-    
-    private Color colorUnselected = new Color(102,102,102);
-    private Color color1 = new Color(102,102,102);
-    private Color color2 = new Color(102,102,102);
-    private Color color3 = new Color(102,102,102);
-    private Color colorHover = new Color(255,50,50);
-    private Color colorSelected = new Color(225,0,0);
-      
-    
+
+    private Color colorUnselected = new Color(102, 102, 102);
+    private Color color1 = new Color(102, 102, 102);
+    private Color color2 = new Color(102, 102, 102);
+    private Color color3 = new Color(102, 102, 102);
+    private Color colorHover = new Color(255, 50, 50);
+    private Color colorSelected = new Color(225, 0, 0);
+
     public MainScreen() {
         initComponents();
         setSize(875, 550);
         setIconImage(Toolkit.getDefaultToolkit().getImage("src/img/contact.png"));
         setLocationRelativeTo(null);
-        setCajasTxtVisibility(false,false);
-        setLabelVisibility(false,false);
+        setCajasTxtVisibility(false, false);
+        setLabelVisibility(false, false);
         setButtonsVisibility(false);
         ventanaActiva.setText("Bienvenido");
-      
+
     }
 
-        
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -409,18 +404,19 @@ public class MainScreen extends javax.swing.JFrame {
         ventanaActiva.setText("Agregar nuevo cliente");
         labelState.setText("Estado: Agregar nuevo cliente...");
         setCajasTxTEditable(true);
-        setCajasTxtVisibility(true,false);
-        setLabelVisibility(true,false);
+        setCajasTxtVisibility(true, false);
+        setLabelVisibility(true, false);
         setButtonsVisibility(false);
         btnaddAddForm.setVisible(true);
         btncleanAddForm.setVisible(true);
-        limpiarCajasTxt();    
-        color1=colorSelected;
+        limpiarCajasTxt();
+        color1 = colorSelected;
         addCLabel.setBackground(color1);
-        color2=colorUnselected;
+        color2 = colorUnselected;
         findCLabel.setBackground(color2);
-        color3=colorUnselected;
+        color3 = colorUnselected;
         findPLabel.setBackground(color3);
+        txtTelefono.requestFocus();
     }//GEN-LAST:event_addCLabelMouseClicked
 
     private void findCLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findCLabelMouseClicked
@@ -434,19 +430,19 @@ public class MainScreen extends javax.swing.JFrame {
         btnDeleteClient.setVisible(true);
         setCajasTxTEditable(false);
         txtTelefono.setEditable(true);
-        setCajasTxtVisibility(true,false);
-        setLabelVisibility(true,false);
-        color1=colorUnselected;
+        setCajasTxtVisibility(true, false);
+        setLabelVisibility(true, false);
+        color1 = colorUnselected;
         addCLabel.setBackground(color1);
-        color2=colorSelected;
+        color2 = colorSelected;
         findCLabel.setBackground(color2);
-        color3=colorUnselected;
+        color3 = colorUnselected;
         findPLabel.setBackground(color3);
+        txtTelefono.requestFocus();
     }//GEN-LAST:event_findCLabelMouseClicked
 
+    private void rellenarCajasConCliente(Cliente p_cliente) {
 
-    private void rellenarCajasConCliente(Cliente p_cliente){
-        
     }
     private void cerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarMouseClicked
         dispose();
@@ -458,12 +454,12 @@ public class MainScreen extends javax.swing.JFrame {
 
 
     private void backgroundMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backgroundMousePressed
-        mouseX=evt.getX();
-        mouseY=evt.getY();
+        mouseX = evt.getX();
+        mouseY = evt.getY();
     }//GEN-LAST:event_backgroundMousePressed
 
     private void backgroundMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backgroundMouseDragged
-        setLocation(this.getLocation().x+evt.getX()-mouseX,this.getLocation().y+evt.getY()-mouseY);
+        setLocation(this.getLocation().x + evt.getX() - mouseX, this.getLocation().y + evt.getY() - mouseY);
     }//GEN-LAST:event_backgroundMouseDragged
 
     private void addCLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addCLabelMouseEntered
@@ -493,81 +489,137 @@ public class MainScreen extends javax.swing.JFrame {
     private void findPLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findPLabelMouseClicked
 
         ventanaActiva.setText("Buscar telefonos por apellido");
-        labelState.setText("Estado: Buscar telefonos por apellido");
+        labelState.setText("Estado: Buscar telefonos por apellido...");
         setCajasTxTEditable(false);
         limpiarCajasTxt();
         txtApellido.setEditable(true);
         setButtonsVisibility(false);
         btnPhoneSearch.setVisible(true);
         btncleanAddForm.setVisible(true);
-        setCajasTxtVisibility(false,true);
+        setCajasTxtVisibility(false, true);
         txtApellido.setVisible(true);
-        setLabelVisibility(false,true);
+        setLabelVisibility(false, true);
         txtListaTelefonosE.setEditable(false);
         txtTelefono.setEditable(true);
         labelListaTelefonos.setText("Telefonos");
-        
-        color1=colorUnselected;
+
+        color1 = colorUnselected;
         addCLabel.setBackground(color1);
-        color2=colorUnselected;
+        color2 = colorUnselected;
         findCLabel.setBackground(color2);
-        color3=colorSelected;
+        color3 = colorSelected;
         findPLabel.setBackground(color3);
-        
+        txtApellido.requestFocus();
     }//GEN-LAST:event_findPLabelMouseClicked
-    
-    
-    
+
+
     private void btnPhoneSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPhoneSearchMouseExited
-        btnPhoneSearch.setBackground(new Color(225,0,0));
+        btnPhoneSearch.setBackground(new Color(225, 0, 0));
     }//GEN-LAST:event_btnPhoneSearchMouseExited
 
     private void btnPhoneSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPhoneSearchMouseEntered
-        btnPhoneSearch.setBackground(new Color(255,50,50));
+        btnPhoneSearch.setBackground(new Color(255, 50, 50));
     }//GEN-LAST:event_btnPhoneSearchMouseEntered
 
     private void btnPhoneSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPhoneSearchMouseClicked
-        txtListaTelefonosE.setText("");
-        int cantidad=0;
+        if (!"".equals(txtApellido.getText())){
+            txtListaTelefonosE.setText("");
+        int cantidad = 0;
         for (Long item : directory.buscarTelefono(txtApellido.getText())) {
 
-            txtListaTelefonosE.setText(txtListaTelefonosE.getText()+item.toString()+"\n");
+            txtListaTelefonosE.setText(txtListaTelefonosE.getText() + item.toString() + "\n");
             cantidad++;
         }
-        labelState.setText("Estado: Se hallaron "+cantidad+" coincidencias.");
+        labelState.setText("Estado: Se hallaron " + cantidad + " coincidencias.");
+        } else {
+                    labelState.setText("Estado: Apellido no puede estar vacio.");
+                    txtApellido.requestFocus();
+        }
+        
     }//GEN-LAST:event_btnPhoneSearchMouseClicked
 
     private void btnClientSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientSearchMouseExited
-        btnClientSearch.setBackground(new Color(225,0,0));
+        btnClientSearch.setBackground(new Color(225, 0, 0));
     }//GEN-LAST:event_btnClientSearchMouseExited
 
     private void btnClientSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientSearchMouseEntered
-        btnClientSearch.setBackground(new Color(255,50,50));
+        btnClientSearch.setBackground(new Color(255, 50, 50));
     }//GEN-LAST:event_btnClientSearchMouseEntered
 
     private void btnClientSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientSearchMouseClicked
-        loadClienteAForm(directory.buscarCliente(Long.parseLong(txtTelefono.getText(),10)));
+
+       
+        if (!"".equals(txtTelefono.getText())) {
+             Cliente clienteEncontrado = directory.buscarCliente(Long.parseLong(txtTelefono.getText(), 10));
+            if (Objects.nonNull(clienteEncontrado)){
+                loadClienteAForm(clienteEncontrado);
+                labelState.setText("Estado: Cliente "+txtTelefono.getText()+" encontrado.");
+            } else{
+                labelState.setText("Estado: Cliente no encontrado.");
+            }
+        } else {
+            labelState.setText("Estado: Telefono no puede estar vacio.");
+            txtTelefono.requestFocus();
+        }
+
     }//GEN-LAST:event_btnClientSearchMouseClicked
 
     private void btnaddAddFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaddAddFormMouseExited
-        btnaddAddForm.setBackground(new Color(225,0,0));
+        btnaddAddForm.setBackground(new Color(225, 0, 0));
     }//GEN-LAST:event_btnaddAddFormMouseExited
 
     private void btnaddAddFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaddAddFormMouseEntered
-        btnaddAddForm.setBackground(new Color(255,50,50));
+        btnaddAddForm.setBackground(new Color(255, 50, 50));
     }//GEN-LAST:event_btnaddAddFormMouseEntered
 
     private void btnaddAddFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaddAddFormMouseClicked
-        directory.agregarCliente(Long.parseLong(txtTelefono.getText(),10) , new Cliente(Long.parseLong(txtDNI.getText(),10), txtNombre.getText(), txtApellido.getText(), txtCiudad.getText(),txtDomicilio.getText()));
-        labelState.setText("Estado: Cliente "+ txtTelefono.getText()+ " agregado correctamente.");
+        if ("".equals(txtTelefono.getText())) {
+            labelState.setText("Estado: Telefono no puede estar vacio.");
+            txtTelefono.requestFocus();
+        } else {
+            if ("".equals(txtDNI.getText())) {
+                labelState.setText("Estado: DNI no puede estar vacio.");
+                txtDNI.requestFocus();
+            } else {
+                if ("".equals(txtNombre.getText())) {
+                    labelState.setText("Estado: Nombre no puede estar vacio.");
+                    txtNombre.requestFocus();
+                } else {
+                    if ("".equals(txtApellido.getText())) {
+                        labelState.setText("Estado: Apellido no puede estar vacio.");
+                        txtApellido.requestFocus();
+                    } else {
+                        if ("".equals(txtCiudad.getText())) {
+                            labelState.setText("Estado: Ciudad no puede estar vacio.");
+                            txtCiudad.requestFocus();
+                        } else {
+                            if ("".equals(txtDomicilio.getText())) {
+                                labelState.setText("Estado: Domicilio no puede estar vacio.");
+                                txtDomicilio.requestFocus();
+                            } else {
+                                if (directory.agregarCliente(Long.parseLong(txtTelefono.getText(), 10), new Cliente(Long.parseLong(txtDNI.getText(), 10), txtNombre.getText(), txtApellido.getText(), txtCiudad.getText(), txtDomicilio.getText()))) {
+                                    labelState.setText("Estado: Cliente " + txtTelefono.getText() + " agregado correctamente.");
+                                } else {
+                                    labelState.setText("Estado: Cliente " + txtTelefono.getText() + " no ha podido ser agregado, ya existe");
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+        /*
+
+         */
     }//GEN-LAST:event_btnaddAddFormMouseClicked
 
     private void btncleanAddFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncleanAddFormMouseExited
-        btncleanAddForm.setBackground(new Color(0,134,195));
+        btncleanAddForm.setBackground(new Color(0, 134, 195));
     }//GEN-LAST:event_btncleanAddFormMouseExited
 
     private void btncleanAddFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncleanAddFormMouseEntered
-        btncleanAddForm.setBackground(new Color(115,232,255));
+        btncleanAddForm.setBackground(new Color(115, 232, 255));
     }//GEN-LAST:event_btncleanAddFormMouseEntered
 
     private void btncleanAddFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncleanAddFormMouseClicked
@@ -579,17 +631,27 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDNIActionPerformed
 
     private void btnDeleteClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteClientMouseClicked
-        labelState.setText("Estado: El numero "+txtTelefono.getText()+" fue borrado.");        
-        directory.borrarCliente(Long.parseLong(txtTelefono.getText(),10));
-        limpiarCajasTxt();
+        if (!"".equals(txtTelefono.getText())) {
+            if (directory.borrarCliente(Long.parseLong(txtTelefono.getText(), 10))) {
+
+                labelState.setText("Estado: El numero " + txtTelefono.getText() + " fue borrado.");
+            } else {
+                labelState.setText("Estado: El numero " + txtTelefono.getText() + " no fue borrado porque no existia.");
+            }
+
+            limpiarCajasTxt();
+        } else {
+            labelState.setText("Estado: Debe ingresar un numero de telefono.");
+        }
+
     }//GEN-LAST:event_btnDeleteClientMouseClicked
 
     private void btnDeleteClientMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteClientMouseEntered
-        btnDeleteClient.setBackground(new Color(51,255,204));
+        btnDeleteClient.setBackground(new Color(51, 255, 204));
     }//GEN-LAST:event_btnDeleteClientMouseEntered
 
     private void btnDeleteClientMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteClientMouseExited
-        btnDeleteClient.setBackground(new Color(0,204,00));
+        btnDeleteClient.setBackground(new Color(0, 204, 00));
     }//GEN-LAST:event_btnDeleteClientMouseExited
 
     private void logoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseEntered
@@ -597,25 +659,26 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_logoMouseEntered
 
     private void logoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseExited
-        background.setBackground(new Color(44,44,44));
+        background.setBackground(new Color(44, 44, 44));
     }//GEN-LAST:event_logoMouseExited
 
     private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-        background.setBackground(new Color(252,51,112));
+        background.setBackground(new Color((int) (Math.random()*255), (int) (Math.random()*255), (int) (Math.random()*255)));
     }//GEN-LAST:event_jLabel1MouseEntered
 
     private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        background.setBackground(new Color(44,44,44));
+        background.setBackground(new Color(44, 44, 44));
     }//GEN-LAST:event_jLabel1MouseExited
 
-    private void loadClienteAForm(Cliente p_cliente){ 
+    private void loadClienteAForm(Cliente p_cliente) {
         txtDNI.setText(String.valueOf(p_cliente.getDni()));
         txtNombre.setText(p_cliente.getNombre());
         txtApellido.setText(p_cliente.getApellido());
         txtCiudad.setText(p_cliente.getCiudad());
         txtDomicilio.setText(p_cliente.getDireccion());
-    }    
-    private void limpiarCajasTxt (){
+    }
+
+    private void limpiarCajasTxt() {
         txtDNI.setText("");
         txtNombre.setText("");
         txtApellido.setText("");
@@ -624,8 +687,8 @@ public class MainScreen extends javax.swing.JFrame {
         txtTelefono.setText("");
         txtListaTelefonosE.setText("");
     }
-    
-    private void setCajasTxTEditable(boolean p){
+
+    private void setCajasTxTEditable(boolean p) {
         txtDNI.setEditable(p);
         txtNombre.setEditable(p);
         txtApellido.setEditable(p);
@@ -633,9 +696,8 @@ public class MainScreen extends javax.swing.JFrame {
         txtDomicilio.setEditable(p);
         txtTelefono.setEditable(p);
     }
-    
-    
-    private void setCajasTxtVisibility(boolean p, boolean q){
+
+    private void setCajasTxtVisibility(boolean p, boolean q) {
         txtDNI.setVisible(p);
         txtNombre.setVisible(p);
         txtApellido.setVisible(p);
@@ -643,28 +705,26 @@ public class MainScreen extends javax.swing.JFrame {
         txtDomicilio.setVisible(p);
         txtTelefono.setVisible(p);
         txtListaTelefonosE.setVisible(q);
-       
-    }
-    
 
-        
-        private void setLabelVisibility(boolean p,boolean q){
-            labelTelefono.setVisible(p);
-            labelDNI.setVisible(p);
-            labelNombre.setVisible(p);
-            labelApellido.setVisible(p || q);
-            labelCiudad.setVisible(p);
-            labelDomicilio.setVisible(p);
-            labelListaTelefonos.setVisible(q);
-        }
-        
-        private void setButtonsVisibility(boolean p){
-            btncleanAddForm.setVisible(p);
-            btnaddAddForm.setVisible(p);
-            btnClientSearch.setVisible(p);
-            btnPhoneSearch.setVisible(p);
-            btnDeleteClient.setVisible(p);
-        }
+    }
+
+    private void setLabelVisibility(boolean p, boolean q) {
+        labelTelefono.setVisible(p);
+        labelDNI.setVisible(p);
+        labelNombre.setVisible(p);
+        labelApellido.setVisible(p || q);
+        labelCiudad.setVisible(p);
+        labelDomicilio.setVisible(p);
+        labelListaTelefonos.setVisible(q);
+    }
+
+    private void setButtonsVisibility(boolean p) {
+        btncleanAddForm.setVisible(p);
+        btnaddAddForm.setVisible(p);
+        btnClientSearch.setVisible(p);
+        btnPhoneSearch.setVisible(p);
+        btnDeleteClient.setVisible(p);
+    }
 
     /**
      * @param args the command line arguments
@@ -700,7 +760,6 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
     }
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
