@@ -11,11 +11,15 @@ public class Directorio {
     public Directorio() {
         Directorio = new HashMap<>();
     }
-    
 
 
-    public void agregarCliente(long p_numTelefono, Cliente p_cliente) {
-        this.Directorio.put(p_numTelefono, p_cliente);
+
+    public boolean agregarCliente(long p_numTelefono, Cliente p_cliente) {
+           if (!Directorio.containsKey(p_numTelefono)) {
+            Directorio.put(p_numTelefono, p_cliente);
+            return true;           
+        }        
+        return false;
     }
 
     public Cliente buscarCliente(long p_telefono) {
@@ -50,10 +54,12 @@ public class Directorio {
     }
 
 
-    public void borrarCliente(long p_numTelefono) {
-
-        Directorio.remove(p_numTelefono);
-
+    public boolean borrarCliente(long p_numTelefono) {
+        /* if existe el telefono en el directorio */
+        if (Directorio.containsKey(p_numTelefono)) {
+            Directorio.remove(p_numTelefono);
+            return true;
+        }
+        return false;
     }
-    
 }
